@@ -2,9 +2,6 @@
 
 const commander = require('commander');
 const chalk = require('chalk');
-const fs = require('fs');
-const path = require('path');
-
 const version = require('./package.json').version
 
 
@@ -24,14 +21,6 @@ commander
     .option('-s, --server', 'local server')
     .option('-p, --publish', 'npm publish')
 
-/**
- * init
- */
-
- if(commander.init) {
-     require('./src/task/task-init.js').render();
- }
-
   /** 
   * --help log info
  */
@@ -50,5 +39,9 @@ commander.on('--help', function() {
     console.log()
  });
 
-
  commander.parse(process.argv);
+
+ /**
+ * init
+ */
+if(commander.init) require('./src/task/task-init').render();
