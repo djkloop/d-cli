@@ -7,7 +7,32 @@ const path = require('path');
 
 const version = require('./package.json').version
 
- /** 
+
+
+
+commander
+    .version(version)
+    .description(chalk.green(
+        'd-cli for nodejs \n' +
+        chalk.bold('    this cli just learn. \n') +
+        '       d-cli now version is '+ version +''
+    ))
+    .usage(chalk.bold('[options]'))
+    .option('-i, --init', 'init a new project for a template')
+    .option('-d, --dev', 'start project for development')
+    .option('-b, --build', 'start project for production')
+    .option('-s, --server', 'local server')
+    .option('-p, --publish', 'npm publish')
+
+/**
+ * init
+ */
+
+ if(commander.init) {
+     require('./src/task/task-init.js').render();
+ }
+
+  /** 
   * --help log info
  */
 
@@ -26,26 +51,4 @@ commander.on('--help', function() {
  });
 
 
-commander
-    .version(version)
-    .description(chalk.green(
-        'd-cli for nodejs \n' +
-        chalk.bold('    this cli just learn. \n') +
-        '       d-cli now version is '+ version +''
-    ))
-    .usage(chalk.bold('[options]'))
-    .option('-i, --init', 'init a new project for a template')
-    .option('-d, --dev', 'start project for development')
-    .option('-b, --build', 'start project for production')
-    .option('-s, --server', 'local server')
-    .option('-p, --publish', 'npm publish')
-    .parse(process.argv)
-
-/**
- * init
- */
-
- if(commander.init) {
-     require('./src/task/task-init.js').render();
- }
-
+ commander.parse(process.argv);
