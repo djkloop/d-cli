@@ -1,0 +1,19 @@
+{
+  "name": "d-cli",
+  "version": "1.0.0",
+  "description": "a nodejs cli",
+  "main": "index.js",
+  "repository": "git@github.com:djkloop/d-cli.git",
+  "author": "djkloop",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.15.1",
+    "inquirer": "^5.2.0",
+    "node-cmd": "^3.0.0",
+    "ora": "^2.1.0"
+  },
+  "bin": {
+    "d-cli": "command.js"
+  }
+}
