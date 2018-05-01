@@ -1,5 +1,5 @@
 {
-  "name": "d-cli",
+  "name": "djkloop-cli",
   "version": "1.0.0",
   "description": "a nodejs cli",
   "main": "index.js",
